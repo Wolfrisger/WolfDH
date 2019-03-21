@@ -37,3 +37,34 @@ usage:
 		vec1.clear();
 	}
 	
+5.class WolfWin32Dlg
+a MFC like dialog class for Win32 program
+
+usage:
+
+in header:
+
+	#include "WolfWin32Dlg.h"
+
+	class CYourDlg : public CWolfWin32Dlg
+	{
+		DCL_WWDLGPROC(CYourDlg)
+	public:
+	virtual BOOL Procf(UINT uMsg, WPARAM wParam, LPARAM lParam);	//your proc function
+	}
+
+Implement:
+
+	IMP_WWDLGPROC(CYourDlg)
+	BOOL CYourDlg::Procf(UINT uMsg, WPARAM wParam, LPARAM lParam)
+	{
+		switch (uMsg)
+		{
+		case WM_INITDIALOG:
+			//...
+			break;
+		case WM_DESTROY:
+			//...
+			break;
+		}
+	}
